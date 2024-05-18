@@ -7,8 +7,9 @@ export const Routes = () => {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <BaseRoutes>
-        <Route path="/" element={<Home />} />
         <Route path="/query/:id" element={<QueryDetails />} />
+        {/* For all other paths */}
+        <Route path="*" element={<Home />} />
       </BaseRoutes>
     </Suspense>
   );

@@ -1,18 +1,15 @@
-import { Link } from "react-router-dom";
+import { QueryList } from "features/query-list";
+import { QueryContainer, QueryForm } from "features/query-runner";
 import { Layout } from "shared/ui/Layout";
 
 export const QueryDetails = () => {
   return (
     <Layout
-      sidebar={<div>This is the sidebar</div>}
+      sidebar={<QueryList newQuery={true} />}
       content={
-        <div>
-          <h1>Hello, Query Page!</h1>
-          <p>This is the Query details apge</p>
-          <span className="underline">
-            <Link to="/">Go to Home</Link>
-          </span>
-        </div>
+        <QueryContainer>
+          <QueryForm />
+        </QueryContainer>
       }
     />
   );
