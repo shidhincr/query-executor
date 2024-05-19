@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useQueryStore } from "entities/query";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Button } from "shared/ui/button";
 
 interface QueryFormProps {
   newQuery?: boolean;
@@ -47,18 +48,13 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
           autoFocus
         ></textarea>
       </div>
-      <div className="border-b flex justify-end items-center px-4 gap-5 ">
+      <div className="border-b flex justify-end items-center px-4 gap-2 ">
         {newQuery && (
           <Link to="/" className="text-indigo-500">
-            New Query
+            <Button variant={"secondary"}>New Query</Button>
           </Link>
         )}
-        <span
-          className="text-indigo-500 cursor-pointer"
-          onClick={handleRunQuery}
-        >
-          Run
-        </span>
+        <Button onClick={handleRunQuery}>Run</Button>
       </div>
     </>
   );
