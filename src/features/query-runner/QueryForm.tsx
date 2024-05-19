@@ -54,7 +54,9 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
             <Button variant={"secondary"}>New Query</Button>
           </Link>
         )}
-        <Button onClick={handleRunQuery}>Run</Button>
+        <Button onClick={handleRunQuery} disabled={!query}>
+          Run
+        </Button>
       </div>
     </>
   );
