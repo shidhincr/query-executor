@@ -7,7 +7,7 @@ export const Routes = () => {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <BaseRoutes>
-        <Route path="/query/:id" element={<QueryDetails />} />
+        <Route path="/query/:queryId" element={<QueryDetails />} />
         {/* For all other paths */}
         <Route path="*" element={<Home />} />
       </BaseRoutes>

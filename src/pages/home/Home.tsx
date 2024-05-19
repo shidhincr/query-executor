@@ -5,10 +5,10 @@ import { Layout } from "shared/ui/Layout";
 export const Home = () => {
   return (
     <Layout
-      sidebar={<QueryList newQuery={false} />}
+      sidebar={<QueryList />}
       content={
         <QueryContainer>
-          <QueryForm />
+          <QueryForm newQuery={false} />
         </QueryContainer>
       }
     />
