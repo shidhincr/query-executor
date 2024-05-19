@@ -25,7 +25,7 @@ export const useQueryStore = create<QueryStoreState>((set) => ({
     set((state) => {
       const queries = state.queries.filter((query) => query.id !== id);
       return {
-        queries: [...queries, newQuery],
+        queries: [newQuery, ...queries],
       };
     });
     return { id: newId };

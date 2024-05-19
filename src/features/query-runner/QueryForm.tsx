@@ -38,16 +38,16 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
 
   return (
     <>
-      <div className="border-b bg-gray-100 p-4">
+      <div className="border-b p-4 bg-gray-400/10">
         <textarea
-          className="w-full h-full p-2 resize-none outline-indigo-200"
+          className="w-full h-full p-2 resize-none outline-indigo-200 rounded-md "
           placeholder={TEXT_AREA_PLACEHOLDER}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
         ></textarea>
       </div>
-      <div className="border-b flex justify-end items-center px-4 gap-5">
+      <div className="border-b flex justify-end items-center px-4 gap-5 ">
         {newQuery && (
           <Link to="/" className="text-indigo-500">
             New Query
