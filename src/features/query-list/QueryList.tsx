@@ -18,7 +18,7 @@ export const QueryList = () => {
                 className={cx(
                   "py-2 px-4 flex justify-start hover:bg-indigo-50 text-sm text-gray-500",
                   queryId === query.id
-                    ? "bg-indigo-500/50 hover:bg-indigo-500/50 text-gray-50"
+                    ? "text-white bg-indigo-500/50 hover:bg-indigo-500/50"
                     : "",
                 )}
               >
