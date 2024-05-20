@@ -51,7 +51,7 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
       <div className="border-b flex justify-end items-center px-4 gap-2 ">
         {newQuery && (
           <Link to="/" className="text-indigo-500">
-            <Button variant={"secondary"}>New Query</Button>
+            <Button variant={"outline"}>New Query</Button>
           </Link>
         )}
         <Button onClick={handleRunQuery} disabled={!query}>
