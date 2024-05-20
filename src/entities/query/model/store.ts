@@ -18,7 +18,7 @@ export const useQueryStore = create<QueryStoreState>((set) => ({
     const newId = id ?? uuid();
     const newQuery: Query = {
       id: newId,
-      name: "Untitled Query",
+      name: query.slice(0, 20) + "...",
       query,
       result,
     };
