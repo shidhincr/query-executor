@@ -20,9 +20,9 @@ export const QueryResults = () => {
   const columns = data[0] ? Object.keys(data[0]) : [];
 
   return (
-    <div className="max-w-[calc(100vw-210px)] overscroll-auto">
+    <div className="overflow-hidden h-screen">
       <Table className="w-max">
-        <TableHeader>
+        <TableHeader className="sticky bg-white top-0">
           <TableRow>
             {columns.map((column) => (
               <TableHead key={column}>{column}</TableHead>
