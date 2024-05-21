@@ -1,1 +1,1 @@
-export { useQueryStore } from "./model/store";
+export { useQueryStore } from "./store";

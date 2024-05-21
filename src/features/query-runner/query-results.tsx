@@ -30,24 +30,30 @@ export const QueryResults = () => {
           <Loader className="text-gray-500" />
         </div>
       )}
-      <Table className="w-max">
-        <TableHeader className="sticky bg-white top-0">
-          <TableRow>
-            {columns.map((column) => (
-              <TableHead key={column}>{column}</TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {data.map((row, index) => (
-            <TableRow key={index}>
+      {data.length ? (
+        <Table className="w-max">
+          <TableHeader className="sticky bg-white top-0">
+            <TableRow>
               {columns.map((column) => (
-                <TableCell key={column}>{row[column] ?? ""}</TableCell>
+                <TableHead key={column}>{column}</TableHead>
               ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {data.map((row, index) => (
+              <TableRow key={index}>
+                {columns.map((column) => (
+                  <TableCell key={column}>{row[column] ?? ""}</TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      ) : (
+        <div className="flex items-center justify-center text-gray-500 text-sm h-40">
+          No results
+        </div>
+      )}
     </div>
   );
 };

@@ -1,1 +1,1 @@
-export { QueryList } from "./QueryList";
+export { QueryList } from "./query-list";

@@ -1,3 +1,3 @@
-export { QueryForm } from "./QueryForm";
-export { QueryResults } from "./QueryResults";
-export { QueryContainer } from "./QueryContainer";
+export { QueryForm } from "./query-form";
+export { QueryResults } from "./query-results";
+export { QueryContainer } from "./query-container";

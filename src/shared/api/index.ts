@@ -3,6 +3,8 @@ const responses = {
   customers: () => import("./customers.json").then((m) => m.default),
   suppliers: () => import("./suppliers.json").then((m) => m.default),
   employees: () => import("./employees.json").then((m) => m.default),
+  orders: () => import("./orders.json").then((m) => m.default),
+  empty: () => import("./empty-results.json").then((m) => m.default),
 } as const;
 
 type responseTypes = keyof typeof responses;

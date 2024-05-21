@@ -1,1 +1,1 @@
-export { QueryDetails } from "./QueryDetails";
+export { QueryDetails } from "./query-details.page";
