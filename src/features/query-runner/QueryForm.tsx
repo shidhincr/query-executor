@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useQueryStore } from "entities/query";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "shared/ui/button";
@@ -24,6 +24,7 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
     state.isLoading,
     state.executeQueryAndUpdate,
   ]);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const currentQueryState = queries.find((query) => query.id === queryId);
   const [query, setQuery] = useState("");
@@ -36,6 +37,7 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
   useEffect(() => {
     if (currentQueryState) {
       setQuery(currentQueryState.query);
+      textareaRef.current?.focus();
     }
   }, [currentQueryState]);
 
@@ -43,12 +45,18 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
     <>
       <div className="border-b p-4 bg-gray-400/10">
         <textarea
+          ref={textareaRef}
           className="w-full h-full p-2 resize-none outline-indigo-200 rounded-md "
           placeholder={TEXT_AREA_PLACEHOLDER}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
           disabled={isLoading}
+          onKeyDown={(e) => {
+            if (query && e.metaKey && e.key === "Enter") {
+              handleRunQuery();
+            }
+          }}
         ></textarea>
       </div>
       <div className="border-b flex justify-end items-center px-4 gap-2 ">
