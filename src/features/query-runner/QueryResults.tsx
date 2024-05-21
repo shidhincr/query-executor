@@ -8,9 +8,13 @@ import {
   TableHeader,
   TableRow,
 } from "shared/ui/table";
+import { Loader } from "shared/ui/loader";
 
 export const QueryResults = () => {
-  const queries = useQueryStore((state) => state.queries);
+  const [queries, isLoading] = useQueryStore((state) => [
+    state.queries,
+    state.isLoading,
+  ]);
   const { queryId } = useParams();
   const currentQuery = queries.find((query) => query.id === queryId);
 
@@ -20,7 +24,12 @@ export const QueryResults = () => {
   const columns = data[0] ? Object.keys(data[0]) : [];
 
   return (
-    <div className="overflow-hidden h-screen">
+    <div className="overflow-hidden relative">
+      {isLoading && (
+        <div className="absolute bg-white top-0 right-0 left-0 bottom-0 opacity-80 z-10 flex justify-center items-center">
+          <Loader className="text-gray-500" />
+        </div>
+      )}
       <Table className="w-max">
         <TableHeader className="sticky bg-white top-0">
           <TableRow>

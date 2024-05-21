@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useQueryStore } from "entities/query";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "shared/ui/button";
+import { Loader } from "shared/ui/loader";
 
 interface QueryFormProps {
   newQuery?: boolean;
@@ -18,8 +19,9 @@ Then press the "Run" button below to execute the query.
 export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
   const { queryId } = useParams();
   const navigate = useNavigate();
-  const [queries, executeQueryAndUpdate] = useQueryStore((state) => [
+  const [queries, isLoading, executeQueryAndUpdate] = useQueryStore((state) => [
     state.queries,
+    state.isLoading,
     state.executeQueryAndUpdate,
   ]);
 
@@ -46,16 +48,19 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
+          disabled={isLoading}
         ></textarea>
       </div>
       <div className="border-b flex justify-end items-center px-4 gap-2 ">
         {newQuery && (
           <Link to="/" className="text-indigo-500">
-            <Button variant={"outline"}>New Query</Button>
+            <Button variant={"outline"} disabled={isLoading}>
+              New Query
+            </Button>
           </Link>
         )}
-        <Button onClick={handleRunQuery} disabled={!query}>
-          Run
+        <Button onClick={handleRunQuery} disabled={!query || isLoading}>
+          {isLoading ? <Loader className="text-white" /> : "Run"}
         </Button>
       </div>
     </>
