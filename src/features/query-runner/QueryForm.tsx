@@ -13,7 +13,7 @@ const TEXT_AREA_PLACEHOLDER = `Enter your query here
 Example: 
 SELECT * FROM table_name;
 
-Then press the "Run" button below to execute the query.
+Then press the "Run" button below to execute the query. You can also use "Cmd + Enter" or "Ctrl + Enter" to run the query.
 `;
 
 export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
@@ -53,21 +53,31 @@ export const QueryForm = ({ newQuery = true }: QueryFormProps) => {
           autoFocus
           disabled={isLoading}
           onKeyDown={(e) => {
-            if (query && e.metaKey && e.key === "Enter") {
+            if (query && (e.metaKey || e.ctrlKey) && e.key === "Enter") {
               handleRunQuery();
             }
           }}
         ></textarea>
       </div>
-      <div className="border-b flex justify-end items-center px-4 gap-2 ">
+      <div className="border-b flex justify-end items-center px-4 gap-4 ">
         {newQuery && (
           <Link to="/" className="text-indigo-500">
-            <Button variant={"outline"} disabled={isLoading}>
+            <Button
+              variant={"default"}
+              disabled={isLoading}
+              className="bg-indigo-400 hover:bg-indigo-500"
+              size="sm"
+            >
               New Query
             </Button>
           </Link>
         )}
-        <Button onClick={handleRunQuery} disabled={!query || isLoading}>
+        <Button
+          onClick={handleRunQuery}
+          disabled={!query || isLoading}
+          size={"sm"}
+          className="w-20"
+        >
           {isLoading ? <Loader className="text-white" /> : "Run"}
         </Button>
       </div>
