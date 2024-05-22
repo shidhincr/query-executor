@@ -56,7 +56,7 @@ Code is organized in the following way:
 
 ## Usage (Screencast)
 
-- to be added
+- ![](screenshots/demo.mp4)
 
 ## UX Improvements
 
@@ -70,7 +70,6 @@ Code is organized in the following way:
 
 ## Performance Improvements
 
-- to be added
 - React router lazy loading routes for reducing bundle size
 - Later: Switch to @tanstack/react-table for rendering the table. it support Virtualization
 
