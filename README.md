@@ -70,8 +70,9 @@ Code is organized in the following way:
 
 ## Performance Improvements
 
-- React window for rendering the table. (Virtualization)
 - to be added
+- React router lazy loading routes for reducing bundle size
+- Later: Switch to @tanstack/react-table for rendering the table. it support Virtualization
 
 ## Performance metrics (to be filled)
 

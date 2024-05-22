@@ -1,13 +1,11 @@
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { BrowserRouter } from "react-router-dom";
+import { Loader } from "shared/ui/loader";
 
 export const Providers = ({ children }: { children: ReactNode }) => {
   return (
-    <BrowserRouter>
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
-        {children}
-      </ErrorBoundary>
-    </BrowserRouter>
+    <ErrorBoundary fallback={<p>Something went wrong</p>}>
+      <Suspense fallback={<Loader />}>{children}</Suspense>
+    </ErrorBoundary>
   );
 };

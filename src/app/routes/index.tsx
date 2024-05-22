@@ -1,16 +1,32 @@
-import { Suspense } from "react";
-import { Route, Routes as BaseRoutes } from "react-router-dom";
-import { Home } from "pages/home";
-import { QueryDetails } from "pages/query-details";
+import {
+  Route,
+  createRoutesFromElements,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-export const Routes = () => {
-  return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <BaseRoutes>
-        <Route path="/query/:queryId" element={<QueryDetails />} />
-        {/* For all other paths */}
-        <Route path="*" element={<Home />} />
-      </BaseRoutes>
-    </Suspense>
-  );
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route
+        path="/query/:queryId"
+        lazy={async () => {
+          const { QueryDetails } = await import("pages/query-details");
+          return { element: <QueryDetails /> };
+        }}
+      />
+      {/* For all other paths */}
+      <Route
+        path="*"
+        lazy={async () => {
+          const { Home } = await import("pages/home");
+          return { element: <Home /> };
+        }}
+      />
+    </Route>,
+  ),
+);
+
+export const Router = () => {
+  return <RouterProvider router={router}></RouterProvider>;
 };
