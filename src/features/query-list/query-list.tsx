@@ -15,8 +15,9 @@ export const QueryList = () => {
           {queries.map((query) => (
             <Link to={`/query/${query.id}`} key={query.id}>
               <li
+                title={query.query}
                 className={cx(
-                  "py-2 px-4 flex justify-start hover:bg-indigo-50 text-sm text-gray-500",
+                  "py-2 px-4 flex justify-start hover:bg-indigo-50 text-sm text-gray-500 whitespace-nowrap",
                   queryId === query.id
                     ? "text-white bg-indigo-500/50 hover:bg-indigo-500/50"
                     : "",
