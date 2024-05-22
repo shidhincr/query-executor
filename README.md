@@ -39,20 +39,20 @@ In this web app, we have two feature slices:
 
 Code is organized in the following way:
 
-- app: Contains the main app component, providers and routes
-- pages: route components and data fetching logic for them
-- features: feature slices
+- `app`: Contains the main app component, providers and routes
+- `pages`: route components and data fetching logic for them
+- `features`: feature slices
   - query-execution: components, hooks and logic for executing queries
   - query-history: components, hooks and logic for viewing query history
-- entities: Business logic and data models
-- shared: shared components, api, hooks and utilities
+- `entities`: Business logic and data models. In our case, `Query` entity
+- `shared`: shared components, api, hooks and utilities
 
 ## How to run the app locally
 
 1. Clone the repository
 2. Run `pnpm install` or `npm install` (if you prefer npm) to install the dependencies
 3. Run `pnpm dev` or `npm run dev` to start the development server
-4. Open `http://localhost:5173` in your browser.
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Usage (Screencast)
 
