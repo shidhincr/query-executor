@@ -56,7 +56,7 @@ Code is organized in the following way:
 
 ## Usage (Screencast)
 
-- ![](screenshots/demo.mp4)
+https://github.com/shidhincr/query-executor/assets/452711/0139347f-101d-40f3-9457-98efebc39c48
 
 ## UX Improvements
 
@@ -75,7 +75,18 @@ Code is organized in the following way:
 
 ## Performance metrics (to be filled)
 
-- Lighthouse score
-- Web Vitals
+- Lighthouse score & Pagespeed Insights
+    <img width="1364" alt="lighthouse_score" src="https://github.com/shidhincr/query-executor/assets/452711/76455d3c-3ee8-48c1-a15c-1b696fd14dfe">
+    ![image](https://github.com/shidhincr/query-executor/assets/452711/690c5598-19e0-4983-b85a-f8a4c9a65e4e)
+
 - Page load time
+  - DomContentLoaded: under 300ms
+  - Page load: under 300ms
+
+ <img width="1328" alt="image" src="https://github.com/shidhincr/query-executor/assets/452711/2dd6c310-55f2-4729-80e6-cae8b99f9626">
+  
 - Bundle size
+  - <img width="654" alt="image" src="https://github.com/shidhincr/query-executor/assets/452711/91a0af74-1f06-4720-a13d-7be63e60d221">
+
+## Todos
+- Mobile website - NFR
