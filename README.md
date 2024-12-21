@@ -14,11 +14,6 @@ This web application allows users to execute SQL queries and view the results.
 
 ## Design & Application Architecture
 
-#### Design decisions notes
-
-https://shidhincr.notion.site/Atlan-interview-assignment-6e706a1f76bf45db95001a37edc14b49
-
-#### Tech Stack
 
 - The web app is bootstrapped using [Vite with React and typescript template](https://vitejs.dev/guide/)
 - [React router(latest)](https://reactrouter.com/en/main) is used for routing
@@ -88,5 +83,3 @@ https://github.com/shidhincr/query-executor/assets/452711/0139347f-101d-40f3-945
 - Bundle size
   - <img width="654" alt="image" src="https://github.com/shidhincr/query-executor/assets/452711/91a0af74-1f06-4720-a13d-7be63e60d221">
 
-## Todos
-- Mobile website - NFR
